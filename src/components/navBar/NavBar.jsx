@@ -1,7 +1,8 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faMagnifyingGlass, faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import  './NavBar.css' 
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faMagnifyingGlass, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import  './NavBar.css';
+import CartWidget from '../CartWidget/CartWidget';
 
 const navBar = () => {
 
@@ -50,10 +51,9 @@ const navBar = () => {
                         <a className="hideDesktop" href="">contáctanos</a>
                     </div>
                 </div>
-
                 <ul className="items-right">
                     <li ><a className="hideDesktop" href="">acceder/registrarse</a></li>
-                    <li ><a href=""><FontAwesomeIcon icon={faCartShopping} /></a></li>     
+                    <li ><CartWidget /></li>     
                 </ul>
                 
             </nav>
