@@ -1,0 +1,19 @@
+.cart {
+    display: flex;
+}
+
+.fontAwesome {
+    position: relative;
+    z-index: 1;
+}
+.qtty {
+    position: relative;
+    left: -15px;
+    font-size: 0.7rem;
+    background-color: rgb(182, 174, 174);
+    /* border: solid;
+    border-style: ridge; */
+    border-radius: 50%;
+    padding: 1px 6px;
+
+}

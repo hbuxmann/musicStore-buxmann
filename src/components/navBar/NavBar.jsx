@@ -53,7 +53,7 @@ const navBar = () => {
                 </div>
                 <ul className="items-right">
                     <li ><a className="hideDesktop" href="">acceder/registrarse</a></li>
-                    <li ><CartWidget /></li>     
+                    <li ><CartWidget qtty='2'/></li>     
                 </ul>
                 
             </nav>
