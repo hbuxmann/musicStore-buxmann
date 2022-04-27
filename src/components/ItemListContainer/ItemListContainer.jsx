@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
-import Item from '../../Item/Item';
+import Item from '../Item/Item';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 
