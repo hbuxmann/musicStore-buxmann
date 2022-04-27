@@ -3,9 +3,9 @@ import './ItemCount.css'
 
 const ItemCount = ({product, onAdd}) => {
     const [qtty, setQtty] = useState(product.initial);
-    let initial = product.initial;
+    // let initial = product.initial;
     let stock   = product.stock;
-    let price   = product.price;
+    let price   = product.price * qtty;
     // mount component
     useEffect(()=>{
         console.log('mount componet')
@@ -13,18 +13,14 @@ const ItemCount = ({product, onAdd}) => {
     // mount component
     useEffect(()=>{
         console.log('change componet')
-        price = product.price *  qtty;
-        document.querySelector('h5').innerText = qtty;
-        document.querySelector('.price').innerText = '$'+price;
-
     }, [qtty]);
     // 
-    function increase(e) {
+    function handleIncreaseButton() {
         if (qtty<stock) { 
             setQtty(qtty + 1);
         }
     }
-    function decrease(e) {
+    function handleDecreaseButton() {
         if (qtty >1 ) {
             setQtty(qtty - 1 );
         }        
@@ -38,13 +34,14 @@ const ItemCount = ({product, onAdd}) => {
         <>
             <div className='card'>
                 <img src={product.image} alt={product.alt} width="100%" />
-                <a href={product.urlPnt}><h3>{product.prodName}</h3></a>
+                <a href={product.url}><h3>{product.prodName}</h3></a>
                 
                 <p className="price">${price}</p>
                 <div className='modifyQtty'>
-                    <button onClick={decrease} className='buttonChange'>-</button>
-                    <h5>{initial}</h5>
-                    <button onClick={increase} className='buttonChange'>+</button>
+                    <button onClick={() => handleDecreaseButton()} className='buttonChange'>-</button>
+                    <h5>{qtty}</h5>
+                    {/* <input type="text" readOnly value={initial} />  */}
+                    <button onClick={() => handleIncreaseButton()} className='buttonChange'>+</button>
                 </div>
                 <p><button onClick={applyOnAdd}  className='addToCart'>Add to Cart</button></p>
 

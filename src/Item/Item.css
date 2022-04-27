@@ -1,0 +1,33 @@
+.card_item {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 200px;
+    min-width: 50px;
+    /* transition: 0.3s; */
+    text-align: center;
+    margin: 15px;
+    /* width: 40%; */
+  }
+  
+
+
+  .price_item {
+    color: grey;
+    font-size: 1.5rem;
+    /* padding: 0px 10px; */
+    margin: -10px 0px;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+
+  .image_item:hover {
+    /* box-shadow: 5px 5px 5px 5px #888888; */
+    box-shadow: 5px 5px 5px #888888;
+    transition: 100ms;
+    opacity: 0.8;
+  }

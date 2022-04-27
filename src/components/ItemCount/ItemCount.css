@@ -1,6 +1,7 @@
 .card {
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
     max-width: 200px;
+    min-width: 50px;
     margin: auto;
     text-align: center;
     /* font-family: arial; */
@@ -44,7 +45,7 @@
     border: none;
 }
 
-h5 {
+h5, input {
     width: 50px;
     text-align: center;
     border: none;
