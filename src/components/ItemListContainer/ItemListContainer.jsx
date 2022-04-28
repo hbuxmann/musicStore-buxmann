@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import './ItemListContainer.css'
 import ItemCount from '../ItemCount/ItemCount';
 import Item from '../Item/Item';
 import ItemList from '../ItemList/ItemList';
-import './ItemListContainer.css'
+import ItemLoader from '../ItemLoader/ItemLoader';
+
 
 const ItemListContainer = ({greeting}) => {
 
@@ -40,20 +42,11 @@ const ItemListContainer = ({greeting}) => {
 
     }
 
-    // const task = new Promise((resolve, reject)=> {
-
-    //     setTimeout(() => {
-    //         console.log("3 Segundos esperado");
-    //             // resolve(products); 
-    //             for (let i=1; i<5; i++) {
-    //                 products.push(<Item product={product}/>);
-    //             };
-    //         }, 3000);
-    // });
     return (
         <div >
             <h1> Contenido en construccion...</h1>  
             <p> {greeting}</p>
+            <ItemLoader />
             <ItemList products={products} />
             {/* <ItemCount product={product} onAdd={onAdd} /> */}
             {/* <Item product={product}/> */}
