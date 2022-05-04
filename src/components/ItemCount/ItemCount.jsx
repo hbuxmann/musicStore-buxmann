@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ItemCount.css'
 
-const ItemCount = ({product, onAdd}) => {
-    const [qtty, setQtty] = useState(product.initial);
+const ItemCount = ({product, onAdd, initial}) => {
+    const [qtty, setQtty] = useState(initial);
     // let initial = product.initial;
     let stock   = product.stock;
     let price   = product.price * qtty;

@@ -4,26 +4,24 @@ import './ItemLoader.css'
 
 
 
-const ItemLoader = ({product, onAdd}) => {
+const ItemLoader = ({setTime}) => {
 
 let myVar;
 const [loaderDisplay, setLoaderDisplays] = useState('');
 const [loaderText, SetLoaderText] = useState('');
 
 function myFunction() {
-  myVar = setTimeout(showPage, 2850);
+  myVar = setTimeout(showPage, setTime);
 }
 
 function showPage() {
-//   document.getElementById("loader").style.display = "none";
-//   document.getElementById("myDiv").style.display = "block";
     setLoaderDisplays('displayNone');
-    SetLoaderText('myDiv');
+    // SetLoaderText('myDiv');
 }
 
     useEffect(()=>{
         setLoaderDisplays('loader');
-        SetLoaderText('displayNone');
+        // SetLoaderText('displayNone');
         myFunction();
 
     }, []);

@@ -4,28 +4,20 @@ import ItemCount from '../ItemCount/ItemCount';
 import Item from '../Item/Item';
 import ItemList from '../ItemList/ItemList';
 import ItemLoader from '../ItemLoader/ItemLoader';
+import ItemDetail from '../ItemDetail/ItemDetail';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+
+// read product list - temporary source!
+import prodJson from '../../data/product.json';
 
 
 const ItemListContainer = ({greeting}) => {
 
     const [products, setProducts] = useState([]);
-
-
-    const product = {
-        idProduct   : 1245,
-        prodName    : 'Honda CBR 300',
-        description : 'Honda CBR 300 Mod 2019, 2300kms!',
-        url         : 'https://moto.mercadolibre.com.ar/MLA-1129347690-honda-cbr-300-_JM',
-        image       : '/images/cbr300.jpg',
-        alt         : 'Honda CBR 300',
-        price       : 5300,
-        stock       : 5,
-        initial     : 1,
-    };
     let auxProducts = [];
-    for (let i=1; i<9; i++) {
-        auxProducts.push(<Item product={product} />);
-   };
+
+    prodJson.map(p => auxProducts = [...auxProducts, <Item product={p} /> ]);  
+
 
     useEffect(()=>{        
         setTimeout(() => {
@@ -44,10 +36,12 @@ const ItemListContainer = ({greeting}) => {
 
     return (
         <div >
-            <h1> Contenido en construccion...</h1>  
-            <p> {greeting}</p>
-            <ItemLoader />
-            <ItemList products={products} />
+            {/* <h1> Contenido en construccion...</h1>  
+            <p> {greeting}</p> */}
+            {/* <ItemLoader setTime={2900}/> */}
+            {/* <ItemDetail product={prodJson[0]}/> */}
+            <ItemDetailContainer product={prodJson[0]}/>
+            {/* <ItemList products={products} /> */}
             {/* <ItemCount product={product} onAdd={onAdd} /> */}
             {/* <Item product={product}/> */}
         </div>

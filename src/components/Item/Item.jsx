@@ -11,7 +11,7 @@ const Item = ({product}) => {
             <div className="container">
                 <h4><b>{product.prodName}</b></h4>
                 <p className="price_item">${product.price}</p>
-                <p>{product.description}</p> 
+                <p>{product.shortDesc}</p> 
             </div>
         </div>
     )
