@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
 
@@ -11,6 +11,7 @@ const ItemDetail = ({product}) => {
         console.log('La cantidad es: '+qtty+' precio:'+price);
     
     }
+    console.log('dentro de ItemDetail: '+product.idProduct);
     
 
     return (
