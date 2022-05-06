@@ -3,12 +3,9 @@
 
 # Aspectos que se completaron
 
-Todas las prácticas fueron entregadas a tiempo
-
-En la presente entrega se hizo énfasis en todas las consignas de la unidad, sumado a los comentarios propios del tutor
-
-se agregaron las rutas solicitadas: home, category e ítem. 
-
+Todas las prácticas fueron entregadas a tiempo\
+En la presente entrega se hizo énfasis en todas las consignas de la unidad, sumado a los comentarios propios del tutor\
+se agregaron las rutas solicitadas: home, category e ítem\
 se realizaron ajustes tendientes a que el site sea responsivo
 
 se incluyeron aspectos adicionales como valor agregada: un menú adaptable al tamaño de la pantalla (mobile first), un desplegable para las categorías, un loader
