@@ -1,3 +1,35 @@
+# Comentarios sobre la entrega - autoevaluación
+
+
+# Aspectos que se completaron
+
+Todas las prácticas fueron entregadas a tiempo
+En la presente entrega se hizo énfasis en todas las consignas de la unidad, sumado a los comentarios propios del tutor
+se agregaron las rutas solicitadas: home, category e ítem. 
+se realizaron ajustes tendientes a que el site sea responsivo
+se incluyeron aspectos adicionales como valor agregada: un menú adaptable al tamaño de la pantalla (mobile first), un desplegable para las categorías, un loader
+Se aplicaron conceptos de componentes statefull y stateless. Acá también siguiendo directivas del tutor
+NO se utilizaron frameworks de UI (bootstrap, material.ui, otros), todo es 100% css. 
+
+# Oportunidades de mejora, próximos pasos
+Seguir dándole forma a la identidad de la página
+Mejorar aspectoss de de los componentes, uniformidad, centrados, aplicar mejores estilos y patrones,  etc. 
+Integración con APIs externas: https://rapidapi.com/
+Mantener el código simple y amigable al programador. 
+SI utilizar frameworks de UI (bootstrap, material.ui, otros), NO todo es css. 
+
+
+
+
+# Video Browser Mobile
+
+https://drive.google.com/file/d/1aWn13WNZakpLq0hPj9yL3xJaJVb1SmYh/view?usp=sharing
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
