@@ -25,7 +25,7 @@ SI utilizar frameworks de UI (bootstrap, material.ui, otros), NO todo es css.
 
 https://drive.google.com/file/d/1aWn13WNZakpLq0hPj9yL3xJaJVb1SmYh/view?usp=sharing
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
 
 
 
