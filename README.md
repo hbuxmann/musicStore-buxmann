@@ -1,7 +1,7 @@
 # Comentarios sobre la entrega - autoevaluación
 ----
 
-# Aspectos que se completaron
+# Aspectos alcanzados
 
 Todas las prácticas fueron entregadas a tiempo. \
 En la presente entrega se hizo énfasis en todas las consignas de la unidad, sumado a los comentarios propios del tutor. \
