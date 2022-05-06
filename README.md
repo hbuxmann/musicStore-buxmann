@@ -14,7 +14,7 @@ NO se utilizaron frameworks de UI (bootstrap, material.ui, otros), todo es 100% 
 # Oportunidades de mejora, próximos pasos
 Seguir dándole forma a la identidad de la página\
 Mejorar aspectoss de de los componentes, uniformidad, centrados, aplicar mejores estilos y patrones,  etc.\ 
-Integración con APIs externas: https://rapidapi.com/\
+Integración con APIs externas: https://rapidapi.com/ \
 Mantener el código simple y amigable al programador\
 SI utilizar frameworks de UI (bootstrap, material.ui, otros), NO todo es css\ 
 
