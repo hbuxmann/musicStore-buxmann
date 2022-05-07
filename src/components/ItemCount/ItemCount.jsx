@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './ItemCount.css'
+import Swal from 'sweetalert2'
+// import 'sweetalert2/themes/dark/dark.scss';
 
 const ItemCount = ({product, onAdd, initial}) => {
     const [qtty, setQtty] = useState(initial);
     // let initial = product.initial;
     let stock   = product.stock;
     let price   = product.price * qtty;
+
+    function showAlert() {
+        Swal.fire({
+            title: 'Item added!',
+            // text: 'Do you want to continue',
+            icon: 'success',
+            confirmButtonText: 'Continue'
+          })
+    }
     // mount component
     useEffect(()=>{
         console.log('mount componet')
@@ -26,6 +37,7 @@ const ItemCount = ({product, onAdd, initial}) => {
         }        
     }
     function applyOnAdd() {
+        showAlert();
         onAdd(qtty, price);     
         
     }

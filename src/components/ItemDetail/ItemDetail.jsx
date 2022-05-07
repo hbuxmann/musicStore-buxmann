@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
+import Button from '../Button/Button';
+
 
 
 
 const ItemDetail = ({product}) => {
-
-
-    function onAdd(qtty, price) {
-        console.log('La cantidad es: '+qtty+' precio:'+price);
     
+    const [qtty,    setQtty]    = useState(0);
+    const [price,   setPrice]   = useState(0);
+
+    function onAdd(q, p) {        
+        setQtty(q);
+        setPrice(p);
+        // console.log('La cantidad es: '+qtty+' precio:'+price);
+        // console.log('La cantidad es: '+q+' precio:'+p);    
     }
-    console.log('dentro de ItemDetail: '+product.idProduct);
+   
     
 
     return (
@@ -35,7 +41,7 @@ const ItemDetail = ({product}) => {
             </div>
             <div className='rightItemDetail'>
                 <ItemCount product={product} onAdd={onAdd} initial={1}/>
-
+                <Button classeToApply={'endPurchase'} navigateTo={`/cart`} />
             </div>
 
         </div>
