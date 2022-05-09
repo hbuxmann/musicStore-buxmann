@@ -43,7 +43,6 @@ const ItemDetailContainer = () => {
         <div>
             <ItemLoader setTime={2900}/>
             <div id={idDisplay}>
-                {/* <ItemDetail product={prod} /> */}
                 {productItemDetail}
             </div>
         </div>

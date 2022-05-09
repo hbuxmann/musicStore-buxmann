@@ -1,27 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './ItemCount.css'
 import Swal from 'sweetalert2'
-// import 'sweetalert2/themes/dark/dark.scss';
+import CartContext from '../CartContext/CartContext';
+
+
 
 const ItemCount = ({product, onAdd, initial}) => {
     const [qtty, setQtty] = useState(initial);
-    // let initial = product.initial;
+    
     let stock   = product.stock;
     let price   = product.price * qtty;
+
+    const {cartList, addItem} = useContext(CartContext);
 
     function showAlert() {
         Swal.fire({
             title: 'Item added!',
-            // text: 'Do you want to continue',
             icon: 'success',
             confirmButtonText: 'Continue'
           })
     }
     // mount component
     useEffect(()=>{
-        console.log('mount componet')
+        console.log('cartList -->'+cartList);
     }, []);
-    // mount component
+    // change component
     useEffect(()=>{
         console.log('change componet')
     }, [qtty]);
@@ -38,6 +41,7 @@ const ItemCount = ({product, onAdd, initial}) => {
     }
     function applyOnAdd() {
         showAlert();
+        addItem(product, qtty);
         onAdd(qtty, price);     
         
     }
