@@ -1,15 +1,19 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import CartContext from '../CartContext/CartContext'
 import './CartWidget.css'
+import { Link } from "react-router-dom";
 
 
-const CartWidget = ({qtty}) => {
+const CartWidget = () => {
     // 
+    const {qttyCart} = useContext(CartContext);
     return (
         <div className='cart'>
-            <a className='fontAwesome' href=""><FontAwesomeIcon icon={faCartShopping} /></a>
-            {qtty ? <p className='qtty'>{qtty}</p> : null }
+            <Link to={`/cart`}  className='fontAwesome'> <FontAwesomeIcon icon={faCartShopping} /></Link>
+            {/* <a className='fontAwesome' href=""><FontAwesomeIcon icon={faCartShopping} /></a> */}
+            <p className='qtty'>{qttyCart}</p>
         </div>
     )
 
