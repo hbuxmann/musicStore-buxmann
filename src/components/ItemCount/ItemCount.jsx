@@ -6,7 +6,7 @@ import CartContext from '../CartContext/CartContext';
 
 
 const ItemCount = ({product, onAdd, initial}) => {
-    const {cartList, addItemV2} = useContext(CartContext);
+    const {cartList, addItem} = useContext(CartContext);
     const prodCartFiltered = cartList.filter(p => p.item.idProduct== product.idProduct);
     let initialValue = initial;
 
@@ -50,7 +50,7 @@ const ItemCount = ({product, onAdd, initial}) => {
     }
     function applyOnAdd() {
         showAlert();
-        addItemV2(product, qtty);
+        addItem(product, qtty);
         onAdd(qtty, price);     
         
     }

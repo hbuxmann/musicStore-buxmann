@@ -48,30 +48,30 @@ export const CartProvider = ({children}) => {
 
 
 
-    const addItem = (item, qtty) => {
-        const auxItem = {
-            item   : item,
-            qtty    : qtty};
+    // const addItem = (item, qtty) => {
+    //     const auxItem = {
+    //         item   : item,
+    //         qtty    : qtty};
 
-        if(isInCart(item.idProduct)){
-             let auxCartList = cartList.map (p => updateItem(p, item.idProduct, qtty) );
-            setCartList(auxCartList); 
-        } else {
-            setCartList([...cartList, auxItem]); 
-        }              
-        setQttyCart(qttyCart+qtty);
-        setTotalPriceCart(totalPriceCart + item.price * qtty );
-    }
+    //     if(isInCart(item.idProduct)){
+    //          let auxCartList = cartList.map (p => updateItem(p, item.idProduct, qtty) );
+    //         setCartList(auxCartList); 
+    //     } else {
+    //         setCartList([...cartList, auxItem]); 
+    //     }              
+    //     setQttyCart(qttyCart+qtty);
+    //     setTotalPriceCart(totalPriceCart + item.price * qtty );
+    // }
 
     const updateItem = (prod, idProd,  qtty) => {
         let aux = prod;
         if (prod.item.idProduct == idProd ) {            
-            aux.qtty += qtty;
+            aux.qtty = qtty;
         } 
         return aux;        
     }
 
-    const addItemV2 = (item, qtty) => {
+    const addItem = (item, qtty) => {
         const auxItem = {
             item   : item,
             qtty    : qtty};
@@ -83,7 +83,7 @@ export const CartProvider = ({children}) => {
         }
 
         if(isInCart(item.idProduct)){
-             let auxCartList = cartList.map (p => updateItemV2(p, item.idProduct, qtty) );
+             let auxCartList = cartList.map (p => updateItem(p, item.idProduct, qtty) );
             setCartList(auxCartList); 
         } else {
             setCartList([...cartList, auxItem]); 
@@ -91,13 +91,13 @@ export const CartProvider = ({children}) => {
         setQttyCart(qttyCart+qtty - actualQtty);
         setTotalPriceCart(totalPriceCart + item.price * qtty - item.price * actualQtty );
     }
-    const updateItemV2 = (prod, idProd,  qtty) => {
-        let aux = prod;
-        if (prod.item.idProduct == idProd ) {            
-            aux.qtty = qtty;
-        } 
-        return aux;        
-    }
+    // const updateItemV2 = (prod, idProd,  qtty) => {
+    //     let aux = prod;
+    //     if (prod.item.idProduct == idProd ) {            
+    //         aux.qtty = qtty;
+    //     } 
+    //     return aux;        
+    // }
 
 
 
@@ -123,7 +123,7 @@ export const CartProvider = ({children}) => {
             if (itemFound.qtty == 1) {
                 removeItem(itemId);
             } else {
-                let auxCartList = cartList.map (p => updateItem(p, itemId, -1 ) );
+                let auxCartList = cartList.map (p => updateItem(p, itemId, itemFound.qtty-1  ) );
                 setCartList(auxCartList);     
             }
             setQttyCart(qttyCart -1);
@@ -132,7 +132,7 @@ export const CartProvider = ({children}) => {
     }
     const increaseQtty = (itemId) => {
         const itemFound = cartList.find(prodInCart => prodInCart.item.idProduct == itemId);
-        let auxCartList = cartList.map (p => updateItem(p, itemId,  1 ) );
+        let auxCartList = cartList.map (p => updateItem(p, itemId,  itemFound.qtty + 1 ) );
         setQttyCart(qttyCart + 1);
         setTotalPriceCart(totalPriceCart +  itemFound.item.price );
     }
@@ -159,7 +159,7 @@ export const CartProvider = ({children}) => {
                     qttyCart, 
                     totalPriceCart,
                     addItem,
-                    addItemV2,
+                    // addItemV2,
                     removeItem,
                     clear,
                     isInCart,
