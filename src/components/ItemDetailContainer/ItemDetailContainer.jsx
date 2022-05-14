@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemLoader from '../ItemLoader/ItemLoader';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 import './ItemDetailContainer.css';
-import CartContext from '../CartContext/CartContext'
 
 // read product list - temporary source!
 import prodJson from '../../data/product.json';
@@ -13,10 +12,10 @@ import prodJson from '../../data/product.json';
 const ItemDetailContainer = () => {
     const {id } = useParams();
     //busco si el producto ya está en el carrito para traerlo junto con la cantidad. 
-    const {cartList} = useContext(CartContext);
+    // const {cartList} = useContext(CartContext);
 
-    const prodCartFiltered = cartList.filter(p => p.item.idProduct== id);
-    console.log('Encontrado? -->'+JSON.stringify(prodCartFiltered, null, 2));
+    // const prodCartFiltered = cartList.filter(p => p.item.idProduct== id);
+    // console.log('Encontrado? -->'+JSON.stringify(prodCartFiltered, null, 2));
 
 
     const productFiltered = prodJson.filter (p => p.idProduct === parseInt(id));
