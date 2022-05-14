@@ -6,12 +6,21 @@ import CartContext from '../CartContext/CartContext';
 
 
 const ItemCount = ({product, onAdd, initial}) => {
-    const [qtty, setQtty] = useState(initial);
+    const {cartList, addItemV2} = useContext(CartContext);
+    const prodCartFiltered = cartList.filter(p => p.item.idProduct== product.idProduct);
+    let initialValue = initial;
+
+    if (prodCartFiltered.length != 0) {
+        initialValue = prodCartFiltered[0].qtty;
+
+    }
+    const [qtty, setQtty] = useState(initialValue);
+
     
     let stock   = product.stock;
     let price   = product.price * qtty;
 
-    const {cartList, addItem} = useContext(CartContext);
+    
 
     function showAlert() {
         Swal.fire({
@@ -41,7 +50,7 @@ const ItemCount = ({product, onAdd, initial}) => {
     }
     function applyOnAdd() {
         showAlert();
-        addItem(product, qtty);
+        addItemV2(product, qtty);
         onAdd(qtty, price);     
         
     }

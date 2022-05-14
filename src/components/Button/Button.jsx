@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './Button.css'
 import { Link } from "react-router-dom";
 
-const Button = ({classeToApply, onClick, navigateTo}) => {
+const Button = ({classeToApply, onClick, navigateTo, name}) => {
     // 
-    const path =  navigateTo ? navigateTo : ``;
 
-
-    return (
-        <Link to={path}>
+     return (
+        
+        // <Link to={path}>
             <div className='divClassButton'>
-                <button  onClick={onClick} className={classeToApply}>Checkout</button>
+                <button  onClick={onClick} className={classeToApply}>{name ? name: 'Checkout'}</button>
             </div>
-        </Link>
+        // </Link>
     )
 
 }

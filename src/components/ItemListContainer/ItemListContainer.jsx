@@ -4,6 +4,7 @@ import Item from '../Item/Item';
 import ItemList from '../ItemList/ItemList';
 import ItemLoader from '../ItemLoader/ItemLoader';
 import { useParams } from 'react-router-dom';
+import {collection, getDocs, getFirestore} from 'firebase/firestore';
 
 // read product list - temporary source!
 import prodJson from '../../data/product.json';
@@ -26,7 +27,11 @@ const ItemListContainer = () => {
         prodJson.map(p => auxProducts = [...auxProducts, <Item product={p} /> ]);
     }
  
-    useEffect(()=>{        
+    useEffect(()=>{  
+        const db = getFirestore();
+        const itemCollection = collection(db, 'products');
+        
+
         setTimeout(() => {
             setProducts(auxProducts);
         }, 3000);
@@ -44,11 +49,7 @@ const ItemListContainer = () => {
     return (
         <div >
             <ItemLoader setTime={2900}/>
-            {/* <ItemDetail product={prodJson[0]}/> */}
-            {/* <ItemDetailContainer product={prodJson[7]}/> */}
             <ItemList products={auxProducts} />
-            {/* <ItemCount product={product} onAdd={onAdd} /> */}
-            {/* <Item product={product}/> */}
         </div>
     )
 

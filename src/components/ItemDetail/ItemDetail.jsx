@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {useContext, useState } from 'react';
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
 import Button from '../Button/Button';
+import { useNavigate } from 'react-router-dom';
+import CartContext from '../CartContext/CartContext'
 
 
 
@@ -10,15 +12,23 @@ const ItemDetail = ({product}) => {
     
     const [qtty,    setQtty]    = useState(0);
     const [price,   setPrice]   = useState(0);
+    const [navigateTo,   setNavigateTo]   = useState(``);
+    const {qttyCart, thereAreNoItems} = useContext(CartContext);
+    const navigate = useNavigate();
 
     function onAdd(q, p) {        
         setQtty(q);
         setPrice(p);
-        // console.log('La cantidad es: '+qtty+' precio:'+price);
-        // console.log('La cantidad es: '+q+' precio:'+p);    
     }
-   
-    
+
+    const onClick = () => {
+        if (qttyCart == 0) {
+            thereAreNoItems();
+        } else {
+            navigate('/cart');
+        }
+    }
+
 
     return (
         <div className='itemDetailContainer'>
@@ -41,7 +51,7 @@ const ItemDetail = ({product}) => {
             </div>
             <div className='rightItemDetail'>
                 <ItemCount product={product} onAdd={onAdd} initial={1}/>
-                <Button classeToApply={'endPurchase'} navigateTo={`/cart`} />
+                <Button classeToApply={'endPurchase'}  onClick={onClick} />
             </div>
 
         </div>

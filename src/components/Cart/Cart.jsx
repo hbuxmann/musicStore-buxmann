@@ -3,6 +3,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import './Cart.css'
 import ItemLoader from '../ItemLoader/ItemLoader';
 import CartContext from '../CartContext/CartContext';
+import ItemListCart from '../ItemListCart/ItemListCart';
+
+
+
 
 const Cart = () => {
     // 
@@ -20,8 +24,9 @@ const Cart = () => {
         <>
             <ItemLoader setTime={1500}/>
             <div id={idDisplay}>  
-                <h2>Hola yo soy el Cart! (muy pobreton)</h2>
-                <p>{JSON.stringify(cartList, null, 2)}</p>
+                <h2>Hola yo soy el Cart! (muy pobreton)</h2>                 
+                {/* <p>{JSON.stringify(cartList, null, 2)}</p> */}
+                <ItemListCart />
             </div>
         </>
     )

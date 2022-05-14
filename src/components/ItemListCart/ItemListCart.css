@@ -1,0 +1,80 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+.container_resume {
+    display: flex;
+    flex-direction: column;
+    width: 89%;
+    margin: auto;
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;    
+}
+
+.row_line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px 0px 10px;
+}
+
+.row_line_v1 {
+    display: grid;
+    grid-template-columns: 55% 15% 15% 15% ;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px 0px 10px;
+}
+
+.row_line_v2 {
+    display: grid;
+    grid-template-columns: 55% 15% 15% 15% ;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px 0px 10px;
+}
+
+.row_line_total {
+    display: grid;
+    grid-template-columns: 85% 15% ;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px 0px 10px;
+}
+
+.align_icons {
+    display: flex;
+    justify-content: center;
+}
+
+.row_line_buttons {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.icon_button_action, .icon_button_action2  {
+    padding: 5px 10px;
+}
+
+hr {
+    border: 1px solid lightgray;
+    width: 100%;
+}
+
+.div_button {
+    /* display: flex; */
+    /* align-items: center; */
+    padding: 20px;    
+    width: 25%;
+}
+
+.icon_button_action:hover {
+    color: red;
+    background-color:lightgray;
+    cursor: pointer;
+    
+  }
