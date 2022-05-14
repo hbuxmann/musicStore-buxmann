@@ -5,10 +5,12 @@
 
 
 .container_resume {
+    margin: auto;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     width: 89%;
-    margin: auto;
+    
     background-color: #f2f2f2;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
@@ -22,6 +24,7 @@
 }
 
 .row_line_v1 {
+    /* margin-top: 30px; */
     display: grid;
     grid-template-columns: 55% 15% 15% 15% ;
     justify-content: space-between;

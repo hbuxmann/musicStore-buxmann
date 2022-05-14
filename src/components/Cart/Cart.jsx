@@ -24,7 +24,6 @@ const Cart = () => {
         <>
             <ItemLoader setTime={1500}/>
             <div id={idDisplay}>  
-                <h2>Hola yo soy el Cart! (muy pobreton)</h2>                 
                 {/* <p>{JSON.stringify(cartList, null, 2)}</p> */}
                 <ItemListCart />
             </div>

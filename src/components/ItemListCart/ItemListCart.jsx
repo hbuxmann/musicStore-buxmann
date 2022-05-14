@@ -71,8 +71,8 @@ const ItemListCart = () => {
             <div className='container_resume'>
                 <div className='row_line_v2'>
                     <label>Products</label>
-                    <label >Unit Price</label>
-                    <label >Total Price</label>
+                    <label >Unit $</label>
+                    <label >Unit Total $</label>
                     <label className='align_icons'><FontAwesomeIcon icon={faCartShopping} /><b>{qttyCart}</b></label>
 
                 </div>
