@@ -3,43 +3,41 @@ import ItemLoader from '../ItemLoader/ItemLoader';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 import './ItemDetailContainer.css';
+import {collection, getDocs, getFirestore,  query, where} from 'firebase/firestore';
+let timeLoader = 60000;
 
 // read product list - temporary source!
-import prodJson from '../../data/product.json';
-
-
+// import prodJson from '../../data/product.json';
 
 const ItemDetailContainer = () => {
     const {id } = useParams();
-    //busco si el producto ya está en el carrito para traerlo junto con la cantidad. 
-    // const {cartList} = useContext(CartContext);
+    const db = getFirestore();
 
-    // const prodCartFiltered = cartList.filter(p => p.item.idProduct== id);
-    // console.log('Encontrado? -->'+JSON.stringify(prodCartFiltered, null, 2));
-
-
-    const productFiltered = prodJson.filter (p => p.idProduct === parseInt(id));
-    const productItemDetail = <ItemDetail product={productFiltered[0]} /> ;
-
-    const [prod, setProd] = useState(productFiltered[0]);
+    const itemCollection = collection(db, 'items');
+    const [prod, setProd] = useState([]);
+    const productItemDetail = <ItemDetail product={prod} /> ;
     const [idDisplay, setIdDisplay] = useState('displayNone');
 
     useEffect(()=>{
-        setProd(productFiltered); 
-        console.log('prod-->'+prod.idProduct);
-        setTimeout(() => {            
-            setIdDisplay('');
-        }, 3000);
+        const q = query (
+            collection(db, 'items'),
+            where ('idProduct','==', parseInt(id))
+        );
+        getDocs(q).then((snapshot) => {
+            // console.log(JSON.stringify(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() }))));
+            let auxProd = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() }));
+            setProd(auxProd[0]); 
+            timeLoader = 200;
+            setIdDisplay('');       
+        }); 
+        // setTimeout(() => {            
+        //     setIdDisplay('');
+        // }, 3000);
     }, []);
-
-    useEffect(()=>{
-        console.log('prod 2-->'+prod.brand);
-    }, [prod]);
-
 
     return (
         <div>
-            <ItemLoader setTime={2900}/>
+            <ItemLoader setTime={timeLoader}/>
             <div id={idDisplay}>
                 {productItemDetail}
             </div>

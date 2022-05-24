@@ -8,7 +8,7 @@ const ItemLoader = ({setTime}) => {
 
 let myVar;
 const [loaderDisplay, setLoaderDisplays] = useState('');
-const [loaderText, SetLoaderText] = useState('');
+// const [loaderText, SetLoaderText] = useState('');
 
 function myFunction() {
   myVar = setTimeout(showPage, setTime);
@@ -24,7 +24,7 @@ function showPage() {
         // SetLoaderText('displayNone');
         myFunction();
 
-    }, []);
+    }, [setTime]);
     
     return (
     <>

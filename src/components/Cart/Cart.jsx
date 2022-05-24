@@ -8,6 +8,7 @@ import ItemListCart from '../ItemListCart/ItemListCart';
 
 
 
+
 const Cart = () => {
     // 
     const [idDisplay, setIdDisplay] = useState('displayNone');
@@ -17,7 +18,7 @@ const Cart = () => {
     useEffect(()=>{
         setTimeout(() => {            
             setIdDisplay('');
-        }, 2500);
+        }, 1500);
     }, []);
 
     return (

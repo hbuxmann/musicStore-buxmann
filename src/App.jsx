@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart';
 import {Routes, Route} from 'react-router-dom';
 import {CartProvider} from './components/CartContext/CartContext'
+import UserFormContainer from './components/UserFormContainer/UserFormContainer';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
           <Route exact path="/" element={ <ItemListContainer  />} />
           <Route exact path="/category/:category" element={ <ItemListContainer  />} /> 
           <Route exact path="/item/:id" element={ <ItemDetailContainer  />} />  
-          <Route exact path="/cart" element={ <Cart  />} />        
+          <Route exact path="/cart" element={ <Cart  />} />
+          <Route exact path="/cart/user" element={ <UserFormContainer  />} />          
         </Routes>
       </div>      
     </CartProvider>    

@@ -69,10 +69,14 @@ hr {
 }
 
 .div_button {
-    /* display: flex; */
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: row; */
     /* align-items: center; */
     padding: 20px;    
-    width: 25%;
+    width: 80%;
 }
 
 .icon_button_action:hover {

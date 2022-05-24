@@ -42,7 +42,7 @@ const ItemListCart = () => {
 
     
 
-    const executeRemoveItems= () => { 
+    const handleRemoveItems= () => { 
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -62,6 +62,10 @@ const ItemListCart = () => {
                 navigate(`/`);
             } 
         })
+    }
+
+    const handleUserForm = () => { 
+        navigate('/cart/user');
     }
 
     useEffect( () => () => console.log("unmount"), [] );
@@ -87,7 +91,8 @@ const ItemListCart = () => {
                 </div>           
             </div>
             <div className='div_button'>
-                <Button classeToApply={'endPurchase'} onClick={executeRemoveItems} name={'Clear Cart'} />
+                <Button classeToApply={'endPurchase'} onClick={handleRemoveItems} name={'Clear Cart'} />
+                <Button classeToApply={'endPurchase'} onClick={handleUserForm} name={'Checkout'} />
             </div>
             
         </div>
