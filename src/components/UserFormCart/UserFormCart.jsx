@@ -103,7 +103,7 @@ const UserFormCart = () => {
             </div>
             <div className='item_row_form'>
                 <label >Telefono</label>
-                <input type={'text'} {...register('telefono', {
+                <input type={'number'} {...register('telefono', {
                     required: true,
                     maxLength: 30
                 })} />
