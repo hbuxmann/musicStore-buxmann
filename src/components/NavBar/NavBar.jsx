@@ -1,11 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import  './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 
 const navBar = () => {
+
+    const [params, setParams] = useSearchParams();
+    const navigate = useNavigate();
 
     function openNav(e) {
         e.preventDefault();
@@ -17,8 +20,27 @@ const navBar = () => {
     }
     function clickPosition(e) {
         e.preventDefault();
+        let search = document.getElementById("search").value;    
+        let search2 = document.getElementById("search2").value;       
         console.log('X: ' + e.clientX);
-        console.log('Y: ' + e.clientY);         
+        console.log('Y: ' + e.clientY); 
+        console.log('value: '+search);
+        if (search != '' || search2 != '') {
+            setParams({
+                query: (search !='' ? search : search2)
+            });
+            console.log('params: '+params.get('query'));
+            document.getElementById("search").value = '';
+            document.getElementById("search2").value = '';
+            navigate('/search/?query='+ (search !='' ? search : search2));
+        }
+ 
+    }
+
+    function handlerKey(e){
+        if (e.key === 'Enter'){
+            clickPosition(e);
+        }
     }
     // 
     return (
@@ -35,7 +57,7 @@ const navBar = () => {
                     <img className='logo' src="/images/construccion-logo.jpg" alt="logo en construcción" width="100" height="50"/>
                 </div>
                 <ul className="items-left">
-                    <li><input type="text" className="hideTablet"  placeholder="Buscar..." name="search" /></li>
+                    <li><input type="text" className="hideTablet"  placeholder="Buscar..." name="search" id="search" onKeyDown={handlerKey}/></li>
                     {/* <li ><a className="hideTablet" href=""><FontAwesomeIcon icon={faMagnifyingGlass} onClick={clickPosition} /></a></li> */}
                     <li className="hideTablet">
                         <Link to={``}>
@@ -57,10 +79,6 @@ const navBar = () => {
                             <Link to={`/category/naked`}>Naked</Link>
                             <Link to={`/category/cross`}>Cross</Link>
                             <Link to={`/`}>All</Link>
-                            {/* <a href="#">Super Sport</a>
-                            <a href="#">Scrambler</a>
-                            <a href="#">Naked</a>
-                            <a href="#">Cross</a> */}
                         </div>
                     </li>
                     {/* <li ><a className="hideDesktop" href="">contáctanos</a></li> */}
@@ -71,10 +89,10 @@ const navBar = () => {
                     <Link to={``} onClick={closeNav} className="closebtn" >&times;</Link>
                     <div className="overlay-content">
                         <div className='searchLeftBar'>
-                            <input type="text" placeholder="Buscar..." name="search" />
+                            <input type="text" placeholder="Buscar..." name="search2"  id="search2"  onKeyDown={handlerKey}/>
                             {/* <a className="hideTablet" href=""><FontAwesomeIcon icon={faMagnifyingGlass} /></a> */}
                             <Link to={``} className="hideTablet">
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                                <FontAwesomeIcon icon={faMagnifyingGlass} onClick={clickPosition}/>
                             </Link>
                         </div>
                         <li><Link to={`/`}>inicio</Link></li>

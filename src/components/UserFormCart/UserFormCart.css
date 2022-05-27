@@ -32,6 +32,11 @@
     /* align-items: flex-end; */
 }
 
+input:invalid {
+    background-color: red;
+
+}
+
 
 .container_user_form_aux {
     display: grid;

@@ -3,7 +3,7 @@ import './ItemListContainer.css'
 import Item from '../Item/Item';
 import ItemList from '../ItemList/ItemList';
 import ItemLoader from '../ItemLoader/ItemLoader';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import {collection, getDocs, getFirestore, addDoc, query, where} from 'firebase/firestore';
 
 // read product list - temporary source!
@@ -16,43 +16,16 @@ const ItemListContainer = () => {
     const {category } = useParams();
     const db = getFirestore();
     const itemCollection = collection(db, 'items');
+    const [params] = useSearchParams();
+    // let query = params.get('query') ?? "";
+    const qry = params.get('query');
+
+    console.log('QUERY-->'+qry);
 
     const [prodFiltered, setProdFiltered] = useState([]);
     const [timeLoader, setTimeLoader] = useState(500);
     // const [cat, setCat] = useState(category);
     let auxProducts = [];
-
-    // if (category) {
-    //     collectionCategoryLoader();
-    // }
-
-    // useEffect(()=>{        
-    //     //
-    //     initialUploadDummy();
-    //     //
-    //     if (category ) {
-    //         console.log('Tiene categoría, viene por acá!');
-    //         collectionCategoryLoader();
-
-    //     } else {
-    //         console.log('Sin RESTRICCIÓN de categoria');
-    //         collectionLoader();
-    //     } 
-    // }, []);
-
-    // useEffect(()=>{
-    //     console.log('estoy en el useEfect de Products');
-    //     products.map(p => auxProducts = [...auxProducts, <Item product={p} /> ]);
-    //     setProdFiltered(auxProducts);
-    //     setCat(category);
-    //     // console.log('Cambiaron los productos!!!!');
-    //     // console.log(JSON.stringify(auxProducts));
-    // }, [products]);
-
-    // useEffect(()=>{
-    //     console.log('Categoria--> ' +cat);
-
-    // }, [cat]);
 
     useEffect(()=>{
         setTimeLoader(60000);
@@ -62,12 +35,16 @@ const ItemListContainer = () => {
             collectionLoader();
         }
 
-    }, [category]);
+    }, [category, params]);
 
     function collectionLoader () {
         getDocs(itemCollection)
         .then((snapshot) => {
             let auxSnapshoot = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() }));
+            if (qry) {
+                auxSnapshoot = auxSnapshoot.filter(p => searchQuery (p) > -1 );
+            }
+            
             auxSnapshoot.map(p => auxProducts = [...auxProducts, <Item product={p} /> ]);
             setProdFiltered(auxProducts);
             setTimeLoader(0);
@@ -88,6 +65,12 @@ const ItemListContainer = () => {
             // setProducts(auxSnapshoot);
         }); 
     };
+
+    function searchQuery (p){
+        let auxProduct = p.alt;
+        auxProduct = auxProduct.toUpperCase();
+        return auxProduct.search(qry.toUpperCase());
+    }
 
     const initialUploadDummy = () => {
         // este proceso tiene como objetivo cargar por unica vez los items que antes se venían utilizando desde un JSON

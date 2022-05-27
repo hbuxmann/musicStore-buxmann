@@ -15,10 +15,11 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/" element={ <ItemListContainer  />} />
-          <Route exact path="/category/:category" element={ <ItemListContainer  />} /> 
+          <Route exact path="/category/:category" element={ <ItemListContainer  />} />         
           <Route exact path="/item/:id" element={ <ItemDetailContainer  />} />  
           <Route exact path="/cart" element={ <Cart  />} />
-          <Route exact path="/cart/user" element={ <UserFormContainer  />} />          
+          <Route exact path="/cart/user" element={ <UserFormContainer  />} /> 
+          <Route path="/search/" element={ <ItemListContainer  />} />           
         </Routes>
       </div>      
     </CartProvider>    
